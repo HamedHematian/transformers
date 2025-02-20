@@ -22,6 +22,7 @@ from typing import Callable, List, Optional, Tuple, Union
 import torch
 import torch.utils.checkpoint
 from torch import nn
+from visualizer import get_local
 
 from ...activations import ACT2FN
 from ...cache_utils import Cache, DynamicCache, StaticCache
@@ -254,7 +255,8 @@ class LlamaAttention(nn.Module):
         self.o_proj = nn.Linear(
             config.num_attention_heads * self.head_dim, config.hidden_size, bias=config.attention_bias
         )
-
+        
+    @get_local('attn_weights')
     def forward(
         self,
         hidden_states: torch.Tensor,
