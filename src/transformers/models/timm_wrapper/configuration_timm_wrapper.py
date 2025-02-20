@@ -21,8 +21,8 @@ from ...configuration_utils import PretrainedConfig
 from ...utils import is_timm_available, logging, requires_backends
 
 
-if is_timm_available():
-    from timm.data import ImageNetInfo, infer_imagenet_subset
+# if is_timm_available():
+#     from timm.data import ImageNetInfo, infer_imagenet_subset
 
 
 logger = logging.get_logger(__name__)
