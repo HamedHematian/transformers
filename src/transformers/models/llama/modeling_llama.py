@@ -235,6 +235,7 @@ class LlamaAttention(nn.Module):
 
     def __init__(self, config: LlamaConfig):
         super().__init__()
+        print('\nCONFIG ATTENTION\n')
         self.config = config
         self.hidden_size = config.hidden_size
         self.num_heads = config.num_attention_heads
