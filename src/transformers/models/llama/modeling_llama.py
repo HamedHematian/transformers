@@ -20,6 +20,7 @@
 """ PyTorch LLaMA model."""
 import math
 from typing import List, Optional, Tuple, Union
+from visualizer import get_local
 
 import torch
 import torch.nn.functional as F
@@ -274,7 +275,7 @@ class LlamaAttention(nn.Module):
 
     def _shape(self, tensor: torch.Tensor, seq_len: int, bsz: int):
         return tensor.view(bsz, seq_len, self.num_heads, self.head_dim).transpose(1, 2).contiguous()
-
+    @get_local('attn_weights')
     def forward(
         self,
         hidden_states: torch.Tensor,
