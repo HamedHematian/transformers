@@ -1157,7 +1157,7 @@ class GenerationMixin:
                 " generate arguments will also show up in this list)"
             )
 
-    @torch.no_grad()
+    # @torch.no_grad()
     def generate(
         self,
         inputs: Optional[torch.Tensor] = None,
