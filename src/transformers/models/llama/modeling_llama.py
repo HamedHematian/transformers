@@ -286,7 +286,7 @@ class LlamaAttention(nn.Module):
         use_cache: bool = False,
     ) -> Tuple[torch.Tensor, Optional[torch.Tensor], Optional[Tuple[torch.Tensor]]]:
         bsz, q_len, _ = hidden_states.size()
-
+        print('XXXX')
         if self.pretraining_tp > 1:
             key_value_slicing = (self.num_key_value_heads * self.head_dim) // self.pretraining_tp
             query_slices = self.q_proj.weight.split((self.num_heads * self.head_dim) // self.pretraining_tp, dim=0)
